@@ -1,0 +1,182 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 200vh;
+}
+
+/* nav section starts */
+.burger {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .burger input {
+    display: none;
+  }
+  
+  .burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+  
+  .burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+  }
+  
+  .burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
+  }
+
+  
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: inset 3px 2px 20px #cf4a4a;
+    box-shadow: 3px 2px 20px #fd5d5d;
+    background-color: transparent;
+    color: black;
+    height: 3rem;
+    position: fixed;
+    width: 100%;
+    transition: 1s;
+}
+
+.navFixed{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: inset 3px 2px 20px #cf4a4a;
+    box-shadow: 3px 2px 20px #fd5d5d;
+    background-color: #ff2f2f;
+    color: white;
+    height: 3rem;
+    position: fixed;
+    width: 100%;
+    transition: all 1s;
+}
+nav .ulNone{
+    display: flex;
+    list-style-type: none;
+}
+
+nav .ulNone li{
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+.nav .ulNone a{
+    text-decoration: none;
+    color: black;
+}
+
+.navFixed .ulNone a{
+    color: white;
+}
+
+nav .ulNone a:hover{
+    text-decoration: underline;
+}
+
+nav .navDivNone input{
+    outline: none;
+    border: none;
+    background: #fd5d5d;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+nav .navDivNone input::placeholder{
+    color: white;
+}
+
+
+nav .navDivNone button{
+    outline: none;
+    border: none;
+    background: #fd5d5d;
+    padding: 8px;
+    margin: 0 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    box-shadow: 4px 4px 0px #ff4b4b,
+                inset 4px 4px 3px #ff2f2f;
+}
+
+.nav .navDivNone button:hover{
+    box-shadow: 2px 2px 0px #ff4b4b,
+                inset 1px 2px 3px #ff2f2f;
+}
+
+@media (max-width : 560px) {
+    .burger{
+        display: block;
+    }
+
+    nav{
+        display: block;
+    }
+    nav .ulNone,
+    nav .navDivNone{
+        display: none;
+    }
+
+    nav .ulNone{
+        display: block;
+    }
+
+    nav .navDivNone{
+        display: block;
+    }
+
+    .burger input:checked ~ nav .ulNone, .burger input:checked ~ nav .navDivNone{
+        display: block;
+    }
+  }
+/* nav section ends */
