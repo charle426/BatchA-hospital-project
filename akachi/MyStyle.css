@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-body{
+/* body{
     height: 200vh;
-}
+} */
 
 /* nav section starts */
 .burger {
@@ -146,37 +146,54 @@ nav .navDivNone button{
     cursor: pointer;
     color: white;
     box-shadow: 4px 4px 0px #ff4b4b,
-                inset 4px 4px 3px #ff2f2f;
+                inset 4px 4px 3px #ff5858;
 }
 
-.nav .navDivNone button:hover{
+nav .navDivNone button:hover{
     box-shadow: 2px 2px 0px #ff4b4b,
-                inset 1px 2px 3px #ff2f2f;
+                inset 1px 2px 3px #ff5858;
 }
 
-@media (max-width : 560px) {
+@media screen and (max-width:560px) {
     .burger{
         display: block;
     }
 
     nav{
         display: block;
+        justify-content: space-between;
     }
+    /* nav .ulNone{
+        display: block;
+    }*/
     nav .ulNone,
     nav .navDivNone{
         display: none;
     }
 
-    nav .ulNone{
-        display: block;
-    }
 
-    nav .navDivNone{
+    /* nav .navDivNone{
         display: block;
-    }
+    } */
 
-    .burger input:checked ~ nav .ulNone, .burger input:checked ~ nav .navDivNone{
+    nav .burger input:checked  ~ .ulNone{
         display: block;
     }
   }
 /* nav section ends */
+
+.hero{
+    background-image: linear-gradient(85deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.60)), url(./imag/re-tint.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    /* position: relative; */
+    height: 85vh;
+    width: 100%;
+}
+
+.hero::before{
+    content: " ";
+    background-color: red;
+    filter: blur(90px);
+}
