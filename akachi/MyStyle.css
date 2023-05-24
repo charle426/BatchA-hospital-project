@@ -9,65 +9,6 @@
 } */
 
 /* nav section starts */
-.burger {
-    position: relative;
-    width: 40px;
-    height: 30px;
-    background: transparent;
-    cursor: pointer;
-    display: none;
-  }
-  
-  .burger input {
-    display: none;
-  }
-  
-  .burger span {
-    display: block;
-    position: absolute;
-    height: 4px;
-    width: 100%;
-    background: black;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
-  }
-  
-  .burger span:nth-of-type(1) {
-    top: 0px;
-    transform-origin: left center;
-  }
-  
-  .burger span:nth-of-type(2) {
-    top: 50%;
-    transform: translateY(-50%);
-    transform-origin: left center;
-  }
-  
-  .burger span:nth-of-type(3) {
-    top: 100%;
-    transform-origin: left center;
-    transform: translateY(-100%);
-  }
-  
-  .burger input:checked ~ span:nth-of-type(1) {
-    transform: rotate(45deg);
-    top: 0px;
-    left: 5px;
-  }
-  
-  .burger input:checked ~ span:nth-of-type(2) {
-    width: 0%;
-    opacity: 0;
-  }
-  
-  .burger input:checked ~ span:nth-of-type(3) {
-    transform: rotate(-45deg);
-    top: 28px;
-    left: 5px;
-  }
 
   
 
@@ -83,6 +24,7 @@
     position: fixed;
     width: 100%;
     transition: 1s;
+    z-index: 1000;
 }
 
 .navFixed{
@@ -97,7 +39,12 @@
     position: fixed;
     width: 100%;
     transition: all 1s;
+    z-index: 1000;
 }
+
+.burger {
+    display: none;
+  }
 nav .ulNone{
     display: flex;
     list-style-type: none;
@@ -154,36 +101,181 @@ nav .navDivNone button:hover{
                 inset 1px 2px 3px #ff5858;
 }
 
+.bug{
+    display: none;
+  }
+
 @media screen and (max-width:560px) {
-    .burger{
+
+    .nav,
+    .navFixed{
+        display: block;
+        height: auto;
+        padding: 8px;
+    }
+    .nav ul,
+    .navFixed ul{
+        display: block;
+        padding: 8px;
+    }
+    .nav .ulNone li,
+    .navFixed .ulNone li{
+        padding: 12px;
+        transition: 300ms;
+    }
+    .nav .ulNone li:hover,
+    .navFixed .ulNone li:hover{
+        background-color: #f75b5b;
+        color: white;
+    }
+    .nav .ulNone a:hover,
+    .navFixed .ulNone a:hover{
+        text-decoration: underline;
+        text-decoration-color: white;
+        color: white;
+        padding: 4px;
+    }
+
+    nav .navDivNone input{
+        margin-bottom: 10px;
+        width: 150px;
+    }
+    nav .navDivNone a{
+        margin-bottom: 10px;
+    }
+
+    .nav ul,
+    .navFixed ul{
+        display: none;
+
+    }
+    .nav .navDivNone,
+    .navFixed .navDivNone{
+        display: none;
+    }
+
+    nav{
+        display: flex;
+        align-items: center;
+    }
+
+    .burger {
+        position: relative;
+        width: 40px;
+        height: 28px;
+        background: transparent;
+        cursor: pointer;
+        display: block;
+        float: right;
+        /* margin-top: -25px; */
+      }
+
+      .bug{
+        display: none;
+      }
+
+       .bug:checked ~ .ulNone,
+       .bug:checked ~ .navDivNone{
+        display: block;
+      }
+      
+      .burger input {
+        display: none;
+      }
+      
+      .burger span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: black;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+      }
+      
+      .burger span:nth-of-type(1) {
+        top: 0px;
+        transform-origin: left center;
+      }
+      
+      .burger span:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: left center;
+      }
+      
+      .burger span:nth-of-type(3) {
+        top: 100%;
+        transform-origin: left center;
+        transform: translateY(-100%);
+      }
+      
+      .bug:checked ~ span:nth-of-type(1) {
+        transform: rotate(45deg);
+        top: 0px;
+        left: 5px;
+      }
+      
+      .bug:checked ~ span:nth-of-type(2) {
+        width: 0%;
+        opacity: 0;
+      }
+      
+      .bug:checked ~ span:nth-of-type(3) {
+        transform: rotate(-45deg);
+        top: 28px;
+        left: 5px;
+      }
+
+      
+
+    
+    
+    
+    /* .burger{
         display: block;
     }
 
+    .burger span{
+        border: 2px sol;
+    }
     nav{
         display: block;
         justify-content: space-between;
     }
-    /* nav .ulNone{
+
+    nav{
+        height: auto;
+    }
+    nav .ulNone{
         display: block;
-    }*/
-    nav .ulNone,
+    }
     nav .navDivNone{
         display: none;
     }
+    nav .ulNone{
+        display : none;
+    }
 
 
-    /* nav .navDivNone{
+    nav .navDivNone{
         display: block;
-    } */
+    }
 
     nav .burger input:checked  ~ .ulNone{
         display: block;
     }
-  }
+    nav .burger input:checked  ~ .navDivNone{
+        display: block;
+    }
+  */} 
 /* nav section ends */
 
 .hero{
-    background-image: linear-gradient(85deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.60)), url(./imag/re-tint.jpg);
+    background-image: linear-gradient(85deg, rgba(252, 27, 27, 0.25), rgba(250, 113, 113, 0.1), rgba(254, 24, 24, 0.25)), url(./imag/re-tint.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;

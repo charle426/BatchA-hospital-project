@@ -10,26 +10,34 @@
 <body>
     <nav class="nav" id="nav">
         
+        <!-- <input type="checkbox" id="burger" class="bug"> -->
+        <input type="checkbox" id="burger" class="bug">
+            <label class="burger" for="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+    
         <div>
             <h3><i>Hopplo</i></h3>
         </div>
-        <ul class="ulNone">
+        <!-- mobile nav -->
+    
+       
+        <!-- mobile nav end -->
+        
+        <ul class="ulNone" id="ulNone">
             <a href="#"><li>Home</li></a>
             <a href="#"><li>Listings</li></a>
             <a href="#"><li>Explore</li></a>
             <a href="#"><li>Map</li></a>
         </ul>
-        <div class="navDivNone">
+        <div class="navDivNone" id="navDivNone">
             <input type="search" name="searchHospital" placeholder="Search" id="searchInput">
             
             <a href="#"><button>Book An Appointment</button></a>
         </div>
-        <label class="burger" for="burger">
-            <input type="checkbox" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+        
     </nav>
         <section class="hero"></section>
     <script src="./javascript/mainJS.js"></script>
