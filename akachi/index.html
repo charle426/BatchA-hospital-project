@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./MyStyle.css">
+    <link rel="stylesheet" href="./myStyles/MyStyle.css">
+    <link rel="stylesheet" href="./myStyles/all.css">
     <title></title>
 </head>
 <body>
     <nav class="nav" id="nav">
-        
         <!-- <input type="checkbox" id="burger" class="bug"> -->
         <input type="checkbox" id="burger" class="bug">
             <label class="burger" for="burger">
@@ -25,7 +25,7 @@
     
        
         <!-- mobile nav end -->
-        
+        <div class="display">
         <ul class="ulNone" id="ulNone">
             <a href="#"><li>Home</li></a>
             <a href="#"><li>Listings</li></a>
@@ -34,12 +34,38 @@
         </ul>
         <div class="navDivNone" id="navDivNone">
             <input type="search" name="searchHospital" placeholder="Search" id="searchInput">
-            
             <a href="#"><button>Book An Appointment</button></a>
         </div>
-        
+        </div>
     </nav>
-        <section class="hero"></section>
+        <section class="hero">
+            <div class="heroWriteUp">
+                <h1>Find the best Hospital for you</h1>
+                <p>We Connect you To best Of the best Hospitals, doctors, dentist, surgeon around the globe</p>     
+         </div>
+         <!-- search engines -->
+         <div class="searchSection">
+            <input type="search" name="searchHospital" placeholder="Search" id="searchInput">
+            <ul class="areas" id="areas">
+                <li>Abia State</li>
+                <li>Akwa Ibom  State</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+         </div>
+         <!-- search engines end -->
+        </section>
     <script src="./javascript/mainJS.js"></script>
 </body>
 </html>
