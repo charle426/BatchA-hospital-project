@@ -11,7 +11,9 @@ html body{
 
 /* nav section starts */
 
-  
+:root{
+    --btn: #fd5d5d;
+}  
 
 .nav{
     display: flex;
@@ -266,6 +268,7 @@ nav .navDivNone button:hover{
     height: 85vh;
     width: 100%;
     padding: 70px 20px;
+    clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 85%, 65% 78%, 0 84%, 0% 35%, 0 0);
 }
 
 .hero .heroWriteUp{
@@ -283,7 +286,11 @@ nav .navDivNone button:hover{
 .hero .searchSection{
     display: grid;
     place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin: 0 auto;
+    width: 70%;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 0;
+    margin-top: 50px;
 }
 
 .hero input{
@@ -291,13 +298,27 @@ nav .navDivNone button:hover{
     border: none;
     background: #fd5d5d;
     padding: 20px;
-    margin: 0 5px;
     border-radius: 10px;
     color: white;
-    width: 30%;
+    width: 80%;
 }
 
 .hero input::placeholder{
     color: white;
+}
+
+.selectArea{
+    width: 100%;
+}
+
+.hero .areas{
+    padding: 20px;
+    border: none;
+    background-color: var(--btn);
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    width: 80%;
+    
 }
 
