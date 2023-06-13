@@ -11,6 +11,12 @@ window.addEventListener('scroll', () => {
     }
 })
 
+if(document.readyState){
+    setInterval(() => {
+    document.getElementById('containLoaders').remove()
+    }, 2000);
+}
+
 console.log(window.scrollY * document.body.offsetHeight)
 
 
