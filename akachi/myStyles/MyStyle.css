@@ -4,12 +4,26 @@
     box-sizing: border-box;
 }
 
+:root{
+    --text: #150817;
+    --background: #ffffff;
+    --btn: #ec7e7e;
+    --secondary-button: #f7caca;
+    --accent: #ff8282;
+    --card-color: #FEF8F8;
+}  
+
 html body{
     font-family:'Gill Sans', 'Gill Sans MT', cursive, Calibri, 'Trebuchet MS', sans-serif;  
+    background: var(--background);
+    color: var(--text);
 }
 
 body::-webkit-scrollbar{
-    width: 13px;
+    width: 4px;
+}
+body::-webkit-scrollbar:hover{
+    width: 10px;
 }
 
 body::-webkit-scrollbar-thumb{
@@ -17,20 +31,102 @@ body::-webkit-scrollbar-thumb{
     background-color: #c5c5c5;
 }
 
+/* preloader section */
+
+.containLoaders{
+    position: fixed;
+    transform: translate(50%, 50%);
+    width: 17%;
+    /* height: 100%; */
+    filter:blur(5px) contrast(8);
+    background-color: #7f5656;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    right: 50%;
+}
+
+.containLoaders .firstLoader{
+    background-color: var(--secondary-button);
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    position: absolute;
+    left: 110px;
+    animation: firstLoader 1s ease-in-out 500ms infinite alternate;
+    transition: 3s;
+    border: none;
+    /* filter: contrast(20); */
+}
+.containLoaders .secondLoader{
+    background-color: var(--accent);
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    position: absolute;
+    right: 110px;
+    animation: secondLoader 1s ease-in-out 500ms infinite alternate;
+    transition: 3s;
+    /* filter:contrast(10); */
+    border: none;
+
+}
+
+@keyframes firstLoader {
+    from{
+        left: 0;
+    }
+    to{
+        left: 210px;
+        z-index: 1;
+    }
+}
+@keyframes secondLoader {
+    from{
+        right: 0;
+        z-index: 1;
+    }
+    to{
+        right: 210px;
+        z-index: 2;
+    }
+    
+}
+
+/* PreLoader Section ends  */
+
+
 /* nav section starts */
 
-:root{
-    --btn: #fd5d5d;
-}  
+
+.hidden{
+    transform: rotate(100deg);
+    filter: blur(20px);
+    transition: all 500ms;
+    position: absolute;
+    transform: scale(0.5);
+    /* left: -290px; */
+    opacity: 0.5;
+}
+
+.show{
+    transform: rotate(0);
+    filter: blur(0);
+    position: static;
+    transform: scale(1);
+    left: 0;
+    opacity: 1;
+}
 
 .nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: inset 3px 2px 20px #cf4a4a;
-    box-shadow: 3px 2px 20px #fd5d5d;
+    box-shadow: inset 3px 2px 20px var(--accent),
+                3px 2px 20px var(--accent);
     background-color: transparent;
-    color: black;
+    color: var(--text);
     height: 4rem;
     position: fixed;
     width: 100%;
@@ -42,9 +138,9 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: inset 3px 2px 20px #cf4a4a;
-    box-shadow: 3px 2px 20px #fd5d5d;
-    background-color: #ff2f2f;
+    box-shadow: 3px 2px 20px var(--accent),
+                inset 3px 2px 20px var(--accent);
+    background-color: var(--btn);
     color: white;
     height: 4rem;
     position: fixed;
@@ -74,7 +170,7 @@ nav .ulNone{
     border-bottom: 2px solid var(--btn);
 }
 .navFixed .ulNone .active{
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--secondary-button);
 }
 
 nav .ulNone li{
@@ -86,7 +182,7 @@ nav .ulNone li{
 
 .nav .ulNone a{
     text-decoration: none;
-    color: black;
+    color: var(--text);
 }
 
 .navFixed .ulNone a{
@@ -99,13 +195,18 @@ nav .ulNone li{
 }
 
 .navFixed .ulNone li:hover{
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--secondary-button);
+}
+
+nav .navDivNone{
+    display: flex;
+    align-items: center;
 }
 
 nav .navDivNone input{
     outline: none;
     border: none;
-    background: #fd5d5d;
+    background: var(--accent);
     padding: 10px;
     margin: 0 5px;
     border-radius: 10px;
@@ -117,22 +218,72 @@ nav .navDivNone input::placeholder{
 }
 
 
-nav .display .navDivNone button{
+nav .display .navDivNone .appointmentButton{
     outline: none;
     border: none;
-    background: #fd5d5d;
-    padding: 8px;
+    background: var(--accent);
+    padding: 10px;
     margin: 0 5px;
     border-radius: 10px;
     cursor: pointer;
     color: white;
-    box-shadow: 5px 4px 0px #ff4b4b,
-                inset 4px 8px 3px #ff5858;
 }
 
-nav .navDivNone button:hover{
-    box-shadow: 2px 2px 0px #ff4b4b,
-                inset 1px 2px 3px #ff5858;
+nav .navDivNone .appointmentButton:hover{
+    filter: drop-shadow(3px 2px 3px var(--secondary-button));
+}
+
+.searchForm{
+    position: relative;
+    width: 100%;
+}
+.searchForm button{
+    position: absolute;
+    right: 120px;
+    top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 8px 14px;
+    background-color: var(--secondary-button);
+    border: none;
+    transition: all 500ms;
+    opacity: 0;
+}
+
+.searchForm input{
+    transition: all 1s;
+}
+
+.searchForm input:focus ~ button{
+    opacity: 1;
+}
+
+.searchForm button:hover{
+    box-shadow: 1px 1px 9px var(--secondary-button);
+}
+
+.searchForm .resultBox{
+    background-color: var(--secondary-button);
+    width: 75%;
+    margin-left: 10px;
+    border-radius: 10px;
+    max-height: 250px;
+    overflow-y: scroll;
+}
+
+.searchForm .resultBox ul{
+    border-top: 1px solid #c5c5c5;
+    list-style: none;
+}
+
+.searchForm .resultBox ul li{
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchForm .resultBox ul li:hover{
+    background-color: var(--btn);
 }
 
 .bug{
@@ -185,10 +336,10 @@ nav .navDivNone button:hover{
     }
     nav .navDivNone{
         margin-left: 20px;
-
+        display: block;
     }
     nav .navDivNone input{
-        margin-bottom: 10px;
+        margin-top: 10px;
         width: 65%;
     }
     nav .navDivNone a{
@@ -234,7 +385,7 @@ nav .navDivNone button:hover{
         position: absolute;
         height: 3px;
         width: 100%;
-        background: rgb(250, 250, 250);
+        background: var(--secondary-button);
         border-radius: 9px;
         opacity: 1;
         left: 0;
@@ -282,7 +433,7 @@ nav .navDivNone button:hover{
 
 /* hero section */
 .hero{
-    background-image: linear-gradient(75deg, rgba(0, 0, 0, 0.25), rgba(12, 7, 7, 0.1), rgba(34, 4, 4, 0.25)), url(../imag/re-tint.jpg);
+    background-image: linear-gradient(45deg, rgba(236, 126, 126, 0.8), rgba(247, 202, 202, 0.6), rgba(255, 130, 130, 0.5)), url(../imag/re-tint.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -311,7 +462,8 @@ nav .navDivNone button:hover{
     gap: 10px;
     justify-content: start;
     align-items: center;
-    color: #ffffff;
+    color: var(--text);
+    width: 70%;
 }
 
 .hero .heroWriteUp h1{
@@ -327,20 +479,21 @@ nav .navDivNone button:hover{
     display: grid;
     place-items: center;
     /* margin: 0 auto; */
-    width: 100%;
+    width: 78%;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     margin-top: 10px;
-    gap: 20px;
+    gap: 10px;
 }
 
 .hero input{
     outline: none;
     border: none;
-    background: #fd5d5d;
+    background: var(--accent);
     padding: 18px;
     border-radius: 10px;
     color: white;
     width: 80%;
+    position: relative;
 }
 
 .hero input::placeholder{
@@ -354,7 +507,7 @@ nav .navDivNone button:hover{
 .hero .areas{
     padding: 18px;
     border: none;
-    background-color: var(--btn);
+    background-color: var(--accent);
     border-radius: 10px;
     outline: none;
     color: white;
@@ -405,6 +558,52 @@ nav .navDivNone button:hover{
     margin-top: 10px;
 }
 
+.RankingHospitals .containRanks > div:nth-child(2){
+    transition: 1000ms;
+}
+.RankingHospitals .containRanks > div:nth-child(3){
+    transition: 1500ms;
+}
+.RankingHospitals .containRanks > div:nth-child(4){
+    transition: 2000ms;
+}
+.RankingHospitals .containRanks > div:nth-child(5){
+    transition: 2600ms;
+}
+.RankingHospitals .containRanks > div:nth-child(6){
+    transition: 3100ms;
+}
+.RankingHospitals .containRanks > div:nth-child(7){
+    transition: 3700ms;
+}
+.RankingHospitals .containRanks > div:nth-child(8){
+    transition: 4450ms;
+}
+
+@media (max-width : 650px){
+    .RankingHospitals .containRanks > div:nth-child(2){
+        transition: 550ms;
+    }
+    .RankingHospitals .containRanks > div:nth-child(3){
+        transition: 550ms;
+    }
+    .RankingHospitals .containRanks > div:nth-child(4){
+        transition: 550ms;
+    }
+    .RankingHospitals .containRanks > div:nth-child(5){
+        transition: 550ms;
+    }
+    .RankingHospitals .containRanks > div:nth-child(6){
+        transition: 550ms;
+    }
+    .RankingHospitals .containRanks > div:nth-child(7){
+        transition: 550ms;
+    }
+    .RankingHospitals .containRanks > div:nth-child(8){
+        transition: 550ms;
+    }
+}
+
 .containRanks a{
     text-decoration: none;
     color: black;
@@ -416,12 +615,13 @@ nav .navDivNone button:hover{
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background-color: #eee;
-    padding: 10px;
+    background-color: var(--card-color);
+    padding: 10px 10px 18px 10px;
     text-align: center;
     gap: 10px;
     position: relative;
     perspective: 20rem;
+    color: var(--text)
 }
 
 /* .containRanks .grid3{
@@ -474,20 +674,30 @@ grid-column: 1/3;
   
   .containRanks > div:hover .tooltip,
   .containRanks > div:hover .tooltip::before {
-    background: linear-gradient(320deg, rgb(244, 37, 37), rgb(157, 24, 24));
-    color: #ffffff;
+    background:  linear-gradient(45deg, rgb(236, 126, 126), rgb(247, 202, 202), rgb(255, 130, 130));
+    color: var(--text);
   }
 
 .containRanks .star-ratings{
     color: gold;
 }
 
+.specialityContainer{
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+
 .speciality{
     padding: 10px 15px;
-    background-color: #ff5858;
-    color: white;
+    background-color: var(--secondary-button);
+    color: var(--text);
     border-radius: 10px;
     font-size: smaller;
+}
+
+.speciality:hover{
+    filter: drop-shadow(3px 3px 8px var(--accent));
 }
 
 .RankingHospitals .buttonContainer{
@@ -502,33 +712,52 @@ grid-column: 1/3;
 .buttonContainer button{
     padding: 12px 18px;
     font-size: 18px;
-    background-color: #ff5858;
+    background-color: var(--btn);
     border-radius: 20px /  -98px;
     color: #fff;
     border: none;
-    box-shadow: 3px 3px 0px #ff5858,
-                -3px -3px 0px #ff5858;
+    box-shadow: 3px 3px 0px var(--btn),
+                -3px -3px 0px var(--btn);
     cursor: pointer;
     
 }
 
 .buttonContainer button:hover{
-    box-shadow: 1px 1px 0px #ff5858,
-                -2px -2px 0px #ff5858;
+    box-shadow: 1px 1px 0px var(--btn),
+                -2px -2px 0px var(--btn);
 }
 
 .HowTo{
-    background-image: linear-gradient(45deg, #ff2f2f 70%, #ff6b6b);
+    background-image: linear-gradient(55deg, var(--secondary-button) 60%, var(--card-color));
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     padding: 4rem;
     text-align: center;
-    color: white;
-    ;
+    color: var(--text);
+    position: relative;
+    height: 95vh;
+    margin-top: 2rem;
+}
+
+.HowTo .svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@media (max-width:1190px){
+    .HowTo{
+        height:fit-content;
+    }
 }
 
 .HowTo .howToUse{
     padding: 2rem;
     font-size: larger;
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .HowTo .howToUse h1{
@@ -548,6 +777,14 @@ grid-column: 1/3;
     padding: 10px;
 }
 
+.HowTo .containHowTo div:nth-child(2){
+    transition: 1s;
+}
+.HowTo .containHowTo div:nth-child(3){
+    transition: 2s;
+}
+
+
 .HowTo .containHowTo h1{
     font-size: 32px;
     font-weight: 200;
@@ -559,67 +796,48 @@ grid-column: 1/3;
 .HowTo .containHowTo i{
     font-size: 60px;
     padding: 10px;
+    color: var(--accent);
 }
-/* preloader section */
 
-.containLoaders{
-    position: fixed;
-    transform: translate(50%, 50%);
-    width: 20%;
-    /* height: 100%; */
-    filter:blur(10px) contrast(50) hue-rotate(2turn) ;
-    background-color: #3a1d1d;
+.frequentSearch{
+    background-color: var(--card-color);
+    display: grid;
+    place-items: center;
+    padding: 2rem 3rem;
+    color: var(--text);
+    margin: 2rem 0;
+}
+
+.frequentSearch .frequent{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    right: 50%;
+    justify-content: space-between;
 }
 
-.containLoaders .firstLoader{
-    background-color: blue;
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    position: absolute;
-    left: 110px;
-    animation: firstLoader 1s ease-in-out 50ms infinite alternate;
-    transition: 3s;
-    /* filter: contrast(20); */
-}
-.containLoaders .secondLoader{
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    position: absolute;
-    right: 110px;
-    animation: secondLoader 1s ease-in-out 50ms infinite alternate;
-    transition: 3s;
-    /* filter:contrast(10); */
-    border: none;
+@media (max-width : 850px){
+    .frequentSearch{
+        padding: 1rem 1rem;
+    }
 
+    .frequentSearch .frequent{
+        display: block;
+    }
+    .frequentSearch .frequent h2{
+        margin: 20px 0;
+    }
 }
 
-@keyframes firstLoader {
-    from{
-        left: 0;
-    }
-    to{
-        left: 210px;
-        z-index: 1;
-    }
+.frequentSearch .frequent .frequentWords{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
 }
-@keyframes secondLoader {
-    from{
-        right: 0;
-        z-index: 1;
-    }
-    to{
-        right: 210px;
-        z-index: 2;
-    }
+
+.frequentSearch .frequent .frequentWords a{
+    color: var(--text);
     
+    /* text-decoration: none; */
 }
 
-/* PreLoader Section  */
+
+

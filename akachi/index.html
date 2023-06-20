@@ -9,6 +9,12 @@
     <title></title>
 </head>
 <body>
+    <!-- preloader section -->
+    <div class="containLoaders" id="containLoaders">
+        <span class="secondLoader"></span>
+        <span class="firstLoader"></span>
+    </div>
+    <!-- preloader section ends -->
     <nav class="nav" id="nav">
         <!-- <input type="checkbox" id="burger" class="bug"> -->
         <input type="checkbox" id="burger" class="bug">
@@ -33,8 +39,11 @@
             <a href="#"><li>Map</li></a>
         </ul>
         <div class="navDivNone" id="navDivNone">
-            <input type="search" name="searchHospital" placeholder="Search" id="searchInput">
-            <a href="#"><button>Book An Appointment</button></a>
+            <a href="#"><button class="appointmentButton"> Book An Appointment </button></a>
+            <!-- <form action="" class="searchForm">
+                <input type="search" name="searchHospital" placeholder="Search" spellcheck="false" id="searchInput">
+                <button type="submit">Search</button>
+            </form> -->
         </div>
         </div>
     </nav>
@@ -45,7 +54,12 @@
          </div>
          <!-- search engines -->
          <div class="searchSection">
-            <input type="search" name="searchHospital" placeholder="Search" id="searchInput">
+            <form class="searchForm" action="" method="post" onsubmit="searchAction()">
+                <input type="search" name="searchHospital" placeholder="Search" autocomplete="off" spellcheck="false" id="searchInput">
+                <button type="submit">Search</button>
+                <div class="resultBox">
+                </div>
+            </form>
            <div class="selectArea" id="selectArea">
             <select class="areas" id="areas">
                 <option value="Select Your Location">Select Your Location</option>
@@ -96,94 +110,124 @@
         <section class="RankingHospitals">
             <div><h1>Top Ranking Hospitals in Your Area</h1></div>
             <div class="containRanks">
-                <div>
+                <div class="hidden">
                     <span class="tooltip"><i class="fa fa-location"></i> 7, Umuocham Road, Aba Town, Aba North, Abia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                         </div>
-                        <h3>Living Word Hospital</h3>
-                        <div><a href="#"><h3 class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">Living Word Hospital</h3>
+                        <div class="specialityContainer">
+                            <a href="#"><h3 class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/PVtig8E2pGuHtf7m8">
+                                <h3 class="speciality">Get Direction</h3></a>
+                         </div>
                     </a>
                 </div>
-                <div>
+                <div class="hidden">
                     <span class="tooltip"><i class="fa fa-location"></i>M 17, Osusu Street, Aba North, Abia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                         </div>
-                        <h3>Clehansan Hospital And Maternity</h3>
-                        <div><a href="#"><h3 class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">Clehansan Hospital And Maternity</h3>
+                        <div class="specialityContainer"><a href="#"><h3 class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/CQj5sbe5hKoacyoQ6">
+                                <h3 class="speciality">Get Direction</h3></a>
+                        </div>
                     </a>
                 </div>
-                <div class="grid3">
+                <div class="grid3 hidden">
                     <span class="tooltip"><i class="fa fa-location"></i> 10, Madugba Road, Aba North, Abia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>Kelechi Hospital And Maternity</h3>
-                        <div><a href="#"><h3 class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">Kelechi Hospital And Maternity</h3>
+                        <div class="specialityContainer"><a href="#"><h3 class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/ubtuHaSymos69CWo6">
+                                <h3 class="speciality">Get Direction</h3></a></div>
                     </a>
                 </div>
-                <div class="grid4">
+                <div class="grid4 hidden">
                     <span class="tooltip"><i class="fa fa-location"></i>3, Nwachukwu Avenue, Aba North, Abia, Nigeria <br> Off Faulks Avenue Road</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>Ndubuisi Hospital Limited</h3>
-                        <div><a href="#"><h3  class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">Ndubuisi Hospital Limited</h3>
+                        <div class="specialityContainer"><a href="#"><h3  class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/8C4WTEhPUR9P3L3c9">
+                                <h3 class="speciality">Get Direction</h3></a>
+                            </div>
                     </a>
                 </div>
-                <div>
+                <div class="hidden">
                     <span class="tooltip"><i class="fa fa-location"></i> 11, Gabriel Nwosu Avenue, Aba Road, Aba North, Abia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                         </div>
-                        <h3>Care Foundation Hospital</h3>
-                        <div><a href="#"><h3 class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">Care Foundation Hospital</h3>
+                        <div class="specialityContainer"><a href="#"><h3 class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/vzWm6Ug2ozcXcFCE9">
+                            <h3 class="speciality">Get Direction</h3></a>
+                        </div>
                     </a>
                 </div>
-                <div>
+                <div class="hidden">
                     <span class="tooltip"><i class="fa fa-location"></i> 3 Abagana Street Umucham Abayi, Abayi, Aba, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                         </div>
-                        <h3>Simeone Hospital</h3>
-                        <div><a href="#"><h3 class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">Simeone Specialist Hospital</h3>
+                        <div class="specialityContainer"><a href="#"><h3 class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/tcnJXSWvoDdPSFAr9">
+                                <h3 class="speciality">Get Direction</h3></a>
+                            </div>
                     </a>
                 </div>
-                <div class="grid7">
+                <div class="grid7 hidden">
                     <span class="tooltip"><i class="fa fa-location"></i> 101, Okigwe Road, G.R.A, Aba North, Abia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>Doctor Ezuma James Ezuma</h3>
-                        <div><a href="#"><h3 class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">Doctor Ezuma James Ezuma</h3>
+                        <div class="specialityContainer"><a href="#"><h3 class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/QAASTkp86Y5GFYJTA">
+                                <h3 class="speciality">Get Direction</h3></a>
+                            </div>
                     </a>
                 </div>
-                <div class="grid8">
+                <div class="grid8 hidden">
                     <span class="tooltip"><i class="fa fa-location"></i> Hospital Road Umeze Abai, Umueze, Aba North, Abia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
                         <h3>Abia State University Teaching Hospital</h3>
-                        <div><a href="#"><h3  class="speciality">View Hospital</h3></a></div>
+                        <div class="specialityContainer"><a href="#"><h3  class="speciality">View Hospital</h3></a>
+                            <a href="https://goo.gl/maps/RyGGJUzaLnzpABnF6">
+                                <h3 class="speciality">Get Direction</h3></a></div>
                     </a>
                 </div>
-                <div class="grid8">
-                    <span class="tooltip"><i class="fa fa-location"></i> 78, Faults Road, Aba Road, Aba North, Abia, Nigeria</span>
+                <div class="grid8 hidden">
+                    <span class="tooltip"><i class="fa fa-location"></i> 213, Azikwe Street, Abia South, Abia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>Roltin Oil Nigeria Limited</h3>
-                        <div><a href="#"><h3  class="speciality">View Hospital</h3></a></div>
+                        <h3 class="hospitalNames">New Era Hospital</h3>
+                        <div class="specialityContainer">
+                            <a href="#">
+                                <h3  class="speciality">View Hospital</h3>
+                            </a>
+                            <a href="https://goo.gl/maps/d1Up6cRSMrkpGL5M7">
+                                <h3 class="speciality">Get Direction</h3>
+                            </a>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -201,62 +245,62 @@
             <div><h1>Best Dentists for you to Visit</h1></div>
             <div class="containRanks">
                 <div class="grid3">
-                    <span class="tooltip"><i class="fa fa-location"></i> 119 Ikot Ekpene Road, Ogbor Hill, Aba, Nigeria</span>
+                    <span class="tooltip"><i class="fa fa-location"></i> 45 St Michael's Rd, Aba 450101, Aba, Nigeria </span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>St Andre's Hospital</h3>
+                        <h3>Smiles Dental Centre</h3>
                         <div><a href="#"><h3 class="speciality">See Dentist</h3></a></div>
                     </a>
                 </div>
                 <div class="grid4">
-                    <span class="tooltip"><i class="fa fa-location"></i> 119 Ikot Ekpene Road, Ogbor Hill, Aba, Nigeria</span>
+                    <span class="tooltip"><i class="fa fa-location"></i> AEC 12/7 Old Express by Watch Tower, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>St Emmanuel's Hospital</h3>
+                        <h3>Dr. Nze D.O. Ajuonu Specialist Dental Clinic</h3>
                         <div><a href="#"><h3  class="speciality">See Dentist</h3></a></div>
                     </a>
                 </div>
                 <div>
-                    <span class="tooltip"><i class="fa fa-location"></i> 119 Ikot Ekpene Road, Ogbor Hill, Aba, Nigeria</span>
+                    <span class="tooltip"><i class="fa fa-location"></i> 24 Azikiwe Rd, Umu Obasi 440236, Umuahia, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                         </div>
-                        <h3>Living Word Hospital</h3>
+                        <h3>Christiana Dental Clinic</h3>
                         <div><a href="#"><h3 class="speciality">See Dentist</h3></a></div>
                     </a>
                 </div>
                 <div>
-                    <span class="tooltip"><i class="fa fa-location"></i> 119 Ikot Ekpene Road, Ogbor Hill, Aba, Nigeria</span>
+                    <span class="tooltip"><i class="fa fa-location"></i> 21 Okigwe Rd, Aba 450272, Aba, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                         </div>
-                        <h3>Simeone Hospital</h3>
+                        <h3>Royal Clinics</h3>
                         <div><a href="#"><h3 class="speciality">See Dentist</h3></a></div>
                     </a>
                 </div>
                 <div class="grid7">
-                    <span class="tooltip"><i class="fa fa-location"></i> 119 Ikot Ekpene Road, Ogbor Hill, Aba, Nigeria</span>
+                    <span class="tooltip"><i class="fa fa-location"></i> 291 Aba-Owerri Rd, opposite Yellow Avenue, Abayi 450211, Aba, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>St Andre's Hospital</h3>
+                        <h3>PERFECT SMILE DENTAL CLINIC</h3>
                         <div><a href="#"><h3 class="speciality">See Dentist</h3></a></div>
                     </a>
                 </div>
                 <div class="grid8">
-                    <span class="tooltip"><i class="fa fa-location"></i> 119 Ikot Ekpene Road, Ogbor Hill, Aba, Nigeria</span>
+                    <span class="tooltip"><i class="fa fa-location"></i> 115 Ikot Ekpene Road, Ogbor Hill 450103, Aba, Nigeria</span>
                     <a href="#">
                         <div class="containRanksImg"><img src="./imag/re-tint.jpg" width="100%" alt="">
                             <h4 class="star-ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></h4>
                         </div>
-                        <h3>St Emmanuel's Hospital</h3>
+                        <h3>Mother Theresa Dental and Maxillo Facial Hospital</h3>
                         <div><a href="#"><h3  class="speciality">See Dentist</h3></a></div>
                     </a>
                 </div>
@@ -273,12 +317,30 @@
         <!-- mini explore hospital section ends -->
         <!-- how to use start -->
         <section class="HowTo">
+            <div class="svg" style="overflow: hidden;">
+                <svg
+                  preserveAspectRatio="none"
+                  viewBox="0 0 1200 120"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="fill: #fff; width: 140%; height: 150px;"
+                >
+                  <path
+                  d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z"
+                  opacity=".15"
+                />
+                  <path
+                    d="M0 0v15.81c13 21.11 27.64 41.05 47.69 56.24C99.41 111.27 165 111 224.58 91.58c31.15-10.15 60.09-26.07 89.67-39.8 40.92-19 84.73-46 130.83-49.67 36.26-2.85 70.9 9.42 98.6 31.56 31.77 25.39 62.32 62 103.63 73 40.44 10.79 81.35-6.69 119.13-24.28s75.16-39 116.92-43.05c59.73-5.85 113.28 22.88 168.9 38.84 30.2 8.66 59 6.17 87.09-7.5 22.43-10.89 48-26.93 60.65-49.24V0z"
+                    opacity=".2"
+                  />
+                  <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
+                </svg>
+              </div>
             <div class="howToUse">
                 <h1>How to use Medleap?</h1>
                 <h3>All your medical solution researches at your fingertips</h3>
             </div>
             <div class="containHowTo">
-                <div>
+                <div class="hidden">
                     <h1><i class="fa fa-map-location-dot"></i></h1>
                     <h1>Select your Location</h1>
                     <div>
@@ -287,7 +349,7 @@
                         </h3>
                     </div>
                 </div>
-                <div>
+                <div class="hidden">
                     <h1><i class="fa fa-search"></i></h1>
                     <h1>Search</h1>
                     <div>
@@ -296,7 +358,7 @@
                         </h3>
                     </div>
                 </div>
-                <div>
+                <div class="hidden">
                     <h1><i class="fa fa-map-signs"></i></h1>
                     <h1>View Result</h1>
                     <div>
@@ -308,6 +370,34 @@
             </div>
         </section>
         <!-- how to use ends -->
+
+        <!-- frequent Searches Section  -->
+        <section class="frequentSearch">
+            <div class="frequent">
+                <h2>Frequent Searches :</h2>
+                <div class="frequentWords">
+                     <a href="#"><h4>Pediatrics</h4></a> 
+                     <a href="#"> <h4>Obstetrics</h4></a>
+                     <a href="#"> <h4>Surgery</h4></a>
+                     <a href="#"> <h4>Physical Therapy</h4></a>
+                     <a href="#"> <h4>Orthopedics</h4></a>
+                     <a href="#"> <h4>Dentistry</h4></a>
+                     <a href="#"> <h4>Pulmonology</h4></a>
+                     <a href="#"> <h4>Urology</h4></a>
+                     <a href="#"> <h4>Geriatrics</h4></a>
+                     <a href="#"> <h4>Obstetrics and gynaecology</h4></a>
+                     <a href="#"> <h4>Mental Health</h4></a>
+                     <a href="#"> <h4>Pharmacy</h4></a>
+                     <a href="#"> <h4>Emergency</h4></a>
+                     <a href="#"> <h4>Addictive Services</h4></a>
+                     <a href="#"> <h4>Ambulatory Services</h4></a>
+                     <a href="#"> <h4>Gastroenterology</h4></a>
+                     <a href="#"> <h4>Internal Medicine</h4></a>
+                </div>
+            </div>
+        </section>
+        <!-- frequent Searches Section Ends  -->
+
         <!-- preloader section -->
         <div class="containLoaders" id="containLoaders">
             <span class="secondLoader"></span>
